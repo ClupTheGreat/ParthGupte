@@ -1,16 +1,100 @@
-## Hi there 👋
+# Pramath Haritz | Portfolio
 
-<!--
-**ParthGupte/ParthGupte** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+A personal portfolio and blog website built with modern web technologies, focusing on minimalism, performance, and ease of maintenance.
 
-Here are some ideas to get you started:
+## 🚀 Tech Stack
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- **Core**: HTML5, Vanilla JavaScript
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) (via CDN for simplicity)
+- **Markdown Parsing**: [Marked.js](https://github.com/markedjs/marked)
+- **Fonts**: Inter & Space Grotesk (Google Fonts)
+- **Icons**: Heroicons (SVG)
+
+## ✨ Key Features
+
+- **Decoupled Journal**: A dedicated blog section hosted at `/journal/` with directory-based routing for better SEO and direct linking (e.g., `journal/?id=1`).
+- **Automated Blog Workflow**: Write posts in Markdown with frontmatter, and a Node.js script auto-generates the JSON index.
+- **Organic Animation**: A custom "Separating Fourier Series" canvas animation on the homepage that visualizes wave decomposition.
+- **Interactive Resume**: A sleek modal popup for resume downloads.
+- **Dark Mode**: Fully supported system-aware dark mode with a manual toggle.
+- **SEO Optimized**: Comprehensive meta tags, Open Graph, and Twitter Card support.
+
+## 🛠️ Getting Started
+
+Since this project uses ES modules and `fetch` requests for the blog system, it requires a local server to run (opening `index.html` directly will cause CORS errors).
+
+### Prerequisites
+- Python 3.x OR Node.js
+
+### Running Locally
+
+**Option 1: Using Python (Recommended)**
+```bash
+# Run this in the project root
+python3 -m http.server
+# Open http://localhost:8000
+```
+
+**Option 2: Using Node.js**
+```bash
+npx serve .
+# Open the URL shown in terminal
+```
+
+## 📝 Blog Workflow
+
+The blog system is automated to read Markdown files from the `posts/` directory.
+
+### Adding a New Post
+
+1.  **Create a File**: Add a new `.md` file in the `posts/` directory.
+2.  **Add Frontmatter**: Include the following metadata at the top of your file:
+    ```markdown
+    ---
+    id: 2
+    title: "Your Post Title"
+    category: "tech"  # or "notes"
+    date: "Nov 24, 2025"
+    excerpt: "A brief summary of the post."
+    readTime: "5 min read"
+    ---
+    ```
+3.  **Generate JSON**: Run the automation script to update the blog index:
+    ```bash
+    node generate_articles.js
+    ```
+4.  **Verify**: Check `articles.json` to ensure your post was added.
+
+## 📂 Project Structure
+
+```
+.
+├── assets/              # Images, icons, and static assets
+├── css/                 # Custom CSS overrides
+├── js/                  # Application logic
+│   └── script.js        # Main logic (routing, animations, blog rendering)
+├── journal/             # Decoupled Journal Page
+│   └── index.html       # Journal entry point
+├── posts/               # Markdown blog posts
+├── articles.json        # Generated blog index (Do not edit manually)
+├── generate_articles.js # Script to generate articles.json
+├── index.html           # Main homepage
+├── tailwind.config.js   # Tailwind configuration
+└── README.md            # Documentation
+```
+
+## 🎨 Customization
+
+### Tailwind Configuration
+The project uses a custom Tailwind configuration defined in `tailwind.config.js` (and mirrored in `script.js` for dynamic usage).
+
+- **Colors**:
+  - `swiss-black`: `#050505`
+  - `swiss-white`: `#FAFAFA`
+  - `swiss-gray`: `#888888`
+- **Fonts**:
+  - Sans: `Inter`
+  - Display: `Space Grotesk`
+
+
+© 2025 Pramath Haritz. All rights reserved.
